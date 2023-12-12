@@ -1,4 +1,4 @@
-const PSAppName = 'AppMarket';
+const PSAppName = 'Play Store';
 
 const Review = 'By keeping all these questions in our mind today we have come up with a new topic called “A Guide on Paragraph Writing”. With this guide, we’ll '
     'try to answer all these questions about paragraph writing. Paragraphs act as the main role in a student’s life. While writing any topic in an'

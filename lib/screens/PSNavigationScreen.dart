@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:playstore_flutter/screens/search_screen.dart';
 import 'package:playstore_flutter/utils/PSImages.dart';
 
 class AppScreen extends StatefulWidget {
@@ -40,11 +41,14 @@ class AppScreenState extends State<AppScreen> {
           IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {
-              Scaffold.of(context).openDrawer();
+              // Scaffold.of(context).openDrawer();
             },
           ),
           8.width,
           TextFormField(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen(),));
+            },
             showCursor: false,
             decoration: InputDecoration(focusedBorder: InputBorder.none, enabledBorder: InputBorder.none, errorBorder: InputBorder.none, hintText: 'Search for apps & games'),
           ).expand(),
@@ -55,7 +59,7 @@ class AppScreenState extends State<AppScreen> {
           ),
           InkWell(
             onTap: () {
-              accountDialogBox(context);
+              // accountDialogBox(context);
             },
             child: CircleAvatar(maxRadius: 17, child: Text('J'), backgroundColor: Colors.purple),
           ),

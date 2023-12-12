@@ -17,10 +17,10 @@ class PSGameForYouComponent extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.only(left: 8, right: 8),
-          width: 220,
+          width: 270,
           child: Column(
             children: [
-              commonCacheImageWidget(data.imgMain, height: 110, width: 220, fit: BoxFit.cover).cornerRadiusWithClipRRect(10).onTap(() {
+              commonCacheImageWidget(data.imgMain, height: 150, width: 270, fit: BoxFit.cover).cornerRadiusWithClipRRect(10).onTap(() {
                 PSDetailScreen(data: data).launch(context);
               }),
               8.height,

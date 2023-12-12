@@ -12,7 +12,7 @@ class PSAppsForYouComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
+      width: 150,
       child: GestureDetector(
         onTap: () {
           PSDetailScreen(data: data).launch(context);
@@ -20,7 +20,7 @@ class PSAppsForYouComponent extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            commonCacheImageWidget(data.imgMain, height: 100, fit: BoxFit.cover).cornerRadiusWithClipRRect(10),
+            commonCacheImageWidget(data.imgMain, height: 120, fit: BoxFit.cover).cornerRadiusWithClipRRect(10),
             4.height,
             Text(data.title!, style: primaryTextStyle(size: 12), maxLines: 1, overflow: TextOverflow.ellipsis),
             Text(data.appSize.toString() + "MB", style: secondaryTextStyle(size: 10)),

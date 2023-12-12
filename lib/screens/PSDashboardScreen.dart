@@ -30,12 +30,12 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
   GlobalKey<ScaffoldState> drawerKey = GlobalKey();
   TabController? _tabController;
 
-  int currentIndex = 0;
+  int currentIndex = 1;
 
   final pages = <Widget>[
     PSGamesScreen(),
     PSAppsScreen(),
-    PSMoviesScreen(),
+    // PSMoviesScreen(),
     PSBookScreen(),
   ];
 
@@ -43,7 +43,7 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
   void initState() {
     super.initState();
     init();
-    _tabController = TabController(vsync: this, initialIndex: 0, length: getGameList.length);
+    _tabController = TabController(vsync: this, initialIndex: 1, length: getGameList.length);
   }
 
   @override
@@ -252,7 +252,7 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(label: 'Games', icon: Icon(Icons.sports_esports_outlined, size: 20), activeIcon: Icon(Entypo.game_controller, size: 25), backgroundColor: Colors.white),
           BottomNavigationBarItem(icon: Icon(AntDesign.appstore_o, size: 25), activeIcon: Icon(AntDesign.appstore1, size: 25), label:'Apps', backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(Icons.local_movies_outlined, size: 25), activeIcon: Icon(MaterialIcons.local_movies, size: 25), label:'Movies', backgroundColor: Colors.white),
+          // BottomNavigationBarItem(icon: Icon(Icons.local_movies_outlined, size: 25), activeIcon: Icon(MaterialIcons.local_movies, size: 25), label:'Movies', backgroundColor: Colors.white),
           BottomNavigationBarItem(icon: Icon(AntDesign.book, size: 25), label: 'Books', activeIcon: Icon(FontAwesome.bookmark, size: 25))
         ],
         selectedItemColor: currentIndex == 0 || currentIndex == 1
@@ -264,14 +264,15 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
           setState(() {
             currentIndex = index;
             if (index == 0) {
-              _tabController = TabController(vsync: this, initialIndex: 0, length: getGameList.length);
+              _tabController = TabController(vsync: this, initialIndex: 1, length: getGameList.length);
             } else if (index == 1) {
-              _tabController = TabController(vsync: this, initialIndex: 0, length: appsList.length);
+              _tabController = TabController(vsync: this, initialIndex: 1, length: appsList.length);
             } else if (index == 2) {
-              _tabController = TabController(vsync: this, initialIndex: 0, length: movieList.length);
-            } else if (index == 3) {
-              _tabController = TabController(vsync: this, initialIndex: 0, length: booksList.length);
-            }
+              _tabController = TabController(vsync: this, initialIndex: 1, length: movieList.length);
+            } 
+            // else if (index == 3) {
+            //   _tabController = TabController(vsync: this, initialIndex: 1, length: booksList.length);
+            // }
           });
         },
       ),
