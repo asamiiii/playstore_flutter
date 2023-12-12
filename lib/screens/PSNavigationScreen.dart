@@ -98,8 +98,8 @@ class AppScreenState extends State<AppScreen> {
                     child: Text('S', style: TextStyle(color: Colors.white)),
                   ),
                 ),
-                FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: Colors.black26)),
+                ElevatedButton(
+                  // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: Colors.black26)),
                   onPressed: () {},
                   child: Text('My Account'),
                 ),
@@ -129,8 +129,8 @@ class AppScreenState extends State<AppScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    FlatButton(onPressed: () {}, child: Text('Privacy Policy', style: TextStyle(fontSize: 12))),
-                    FlatButton(onPressed: () {}, child: Text('Terms of Service', style: TextStyle(fontSize: 12))),
+                    ElevatedButton(onPressed: () {}, child: Text('Privacy Policy', style: TextStyle(fontSize: 12))),
+                    ElevatedButton(onPressed: () {}, child: Text('Terms of Service', style: TextStyle(fontSize: 12))),
                   ],
                 ),
               ],

@@ -125,9 +125,9 @@ class PSLibraryFragmentState extends State<PSLibraryFragment> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    FlatButton(
-                      minWidth: 10,
-                      height: 10,
+                    ElevatedButton(
+                      // minWidth: 10,
+                      // height: 10,
                       onPressed: () {
                         setState(() {
                           finish(context);
@@ -135,9 +135,9 @@ class PSLibraryFragmentState extends State<PSLibraryFragment> {
                       },
                       child: Text('Cancel', style: primaryTextStyle(color: psColorGreen)),
                     ),
-                    FlatButton(
-                      minWidth: 10,
-                      height: 10,
+                    ElevatedButton(
+                      // minWidth: 10,
+                      // height: 10,
                       onPressed: () {
                         finish(context, true);
                         setState(() {});

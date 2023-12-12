@@ -43,8 +43,8 @@ class PSRewardsFragmentState extends State<PSRewardsFragment> {
             4.height,
             Text('Check back periodically for special deals\n and free items, or redeem a promo code.', textAlign: TextAlign.center),
             8.height,
-            RaisedButton(
-              color: psColorGreen,
+            ElevatedButton(
+              // color: psColorGreen,
               onPressed: () {},
               child: Text('Redeem promo code', style: TextStyle(color: Colors.white)),
             ),

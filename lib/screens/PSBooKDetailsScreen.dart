@@ -351,25 +351,25 @@ class PSBookDetailsScreenState extends State<PSBookDetailsScreen> {
                         children: [
                           Text('Was this review helpful?', style: secondaryTextStyle()),
                           16.width.expand(),
-                          FlatButton(
-                            highlightColor: Colors.red[200],
-                            height: 25,
-                            minWidth: 55,
+                          ElevatedButton(
+                            // highlightColor: Colors.red[200],
+                            // height: 25,
+                            // minWidth: 55,
                             onPressed: () {
                               toastLong('Thanks for the feedback');
                             },
                             child: Text('Yes'),
-                            shape: RoundedRectangleBorder(side: BorderSide(color: Colors.grey[400]!), borderRadius: BorderRadius.circular(20)),
+                            // shape: RoundedRectangleBorder(side: BorderSide(color: Colors.grey[400]!), borderRadius: BorderRadius.circular(20)),
                           ).paddingRight(10),
-                          FlatButton(
-                            highlightColor: Colors.red[200],
-                            height: 25,
-                            minWidth: 55,
+                          ElevatedButton(
+                            // highlightColor: Colors.red[200],
+                            // height: 25,
+                            // minWidth: 55,
                             onPressed: () {
                               toastLong('Thanks for the feedback');
                             },
                             child: Text('No'),
-                            shape: RoundedRectangleBorder(side: BorderSide(color: Colors.grey[400]!), borderRadius: BorderRadius.circular(20)),
+                            // shape: RoundedRectangleBorder(side: BorderSide(color: Colors.grey[400]!), borderRadius: BorderRadius.circular(20)),
                           ),
                         ],
                       ).paddingOnly(left: 16, right: 16),

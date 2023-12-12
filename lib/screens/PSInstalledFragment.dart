@@ -130,7 +130,7 @@ class PSInstalledFragmentState extends State<PSInstalledFragment> {
                       height: 28,
                       width: 80,
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
-                      child: FlatButton(child: Text('Open', style: TextStyle(color: psColorGreen)), onPressed: () {}),
+                      child: ElevatedButton(child: Text('Open', style: TextStyle(color: psColorGreen)), onPressed: () {}),
                     ),
                   );
                 },

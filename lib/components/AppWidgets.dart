@@ -24,10 +24,12 @@ Future accountDialogBox(BuildContext context, {Function? onPressed}) async {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  FlatButton(minWidth: 10, height: 10, onPressed: () {}, child: Text('Learn more', style: primaryTextStyle(color: psColorGreen))),
-                  FlatButton(
-                    minWidth: 10,
-                    height: 10,
+                  ElevatedButton(
+                    // minWidth: 10, height: 10,
+                     onPressed: () {}, child: Text('Learn more', style: primaryTextStyle(color: psColorGreen))),
+                  ElevatedButton(
+                    // minWidth: 10,
+                    // height: 10,
                     onPressed: () {
                       onPressed!().call();
                     },

@@ -46,9 +46,9 @@ class PSBookReleasesFragmentState extends State<PSBookReleasesFragment> {
                 shrinkWrap: true,
                 itemCount: booksList[widget.tabIndex!].categories!.length,
                 itemBuilder: (context, index) {
-                  return FlatButton(
-                    shape: RoundedRectangleBorder(side: BorderSide(color: Colors.grey[400]!), borderRadius: BorderRadius.circular(20)),
-                    highlightColor: Colors.green[100],
+                  return ElevatedButton(
+                    // shape: RoundedRectangleBorder(side: BorderSide(color: Colors.grey[400]!), borderRadius: BorderRadius.circular(20)),
+                    // highlightColor: Colors.green[100],
                     onPressed: () {
                       releaseList = booksList[widget.tabIndex!].categories![index].list;
                       setState(() {});

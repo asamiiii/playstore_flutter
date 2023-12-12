@@ -250,10 +250,10 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(title: Text('Games'), icon: Icon(Icons.sports_esports_outlined, size: 20), activeIcon: Icon(Entypo.game_controller, size: 25), backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(AntDesign.appstore_o, size: 25), activeIcon: Icon(AntDesign.appstore1, size: 25), title: Text('Apps'), backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(Icons.local_movies_outlined, size: 25), activeIcon: Icon(MaterialIcons.local_movies, size: 25), title: Text('Movies'), backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(AntDesign.book, size: 25), title: Text('Books'), activeIcon: Icon(FontAwesome.bookmark, size: 25))
+          BottomNavigationBarItem(label: 'Games', icon: Icon(Icons.sports_esports_outlined, size: 20), activeIcon: Icon(Entypo.game_controller, size: 25), backgroundColor: Colors.white),
+          BottomNavigationBarItem(icon: Icon(AntDesign.appstore_o, size: 25), activeIcon: Icon(AntDesign.appstore1, size: 25), label:'Apps', backgroundColor: Colors.white),
+          BottomNavigationBarItem(icon: Icon(Icons.local_movies_outlined, size: 25), activeIcon: Icon(MaterialIcons.local_movies, size: 25), label:'Movies', backgroundColor: Colors.white),
+          BottomNavigationBarItem(icon: Icon(AntDesign.book, size: 25), label: 'Books', activeIcon: Icon(FontAwesome.bookmark, size: 25))
         ],
         selectedItemColor: currentIndex == 0 || currentIndex == 1
             ? Colors.green

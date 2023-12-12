@@ -40,8 +40,8 @@ class PSPurchaseHistoryFragmentState extends State<PSPurchaseHistoryFragment> {
             4.height,
             Text('All your play purchases will show up \n here.You can also set up a budget \n to help you manage your spending', textAlign: TextAlign.center),
             8.height,
-            RaisedButton(
-              color: psColorGreen,
+            ElevatedButton(
+              // color: psColorGreen,
               onPressed: () {},
               child: Text('Set budget', style: TextStyle(color: Colors.white)),
             ),

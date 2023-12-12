@@ -46,7 +46,7 @@ class PSFlagPropertiesScreenState extends State<PSFlagPropertiesScreen> {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          FlatButton(
+          ElevatedButton(
             onPressed: () {
               setState(() {
                 finish(context);
@@ -54,7 +54,9 @@ class PSFlagPropertiesScreenState extends State<PSFlagPropertiesScreen> {
             },
             child: Text('CANCEL', style: boldTextStyle(size: 14, color: psColorGreen)),
           ),
-          FlatButton(disabledColor: Colors.grey, onPressed: () {}, child: Text('SUBMIT', style: boldTextStyle(size: 14, color: enable ? Colors.green : Colors.grey)))
+          ElevatedButton(
+            // disabledColor: Colors.grey,
+             onPressed: () {}, child: Text('SUBMIT', style: boldTextStyle(size: 14, color: enable ? Colors.green : Colors.grey)))
         ]),
       ),
       appBar: AppBar(

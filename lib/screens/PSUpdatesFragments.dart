@@ -55,8 +55,9 @@ class PSUpdatesFragmentsState extends State<PSUpdatesFragments> {
                 title: Text('Updates pending ($maxItemCount)'),
                 subtitle: Text('Auto-update is turned on'),
                 trailing: Container(
-                  child: RaisedButton(
-                    color: psColorGreen,
+                  child: TextButton(
+                    // style: ButtonStyle(),
+                    // color: psColorGreen,
                     child: Text('Update all', style: boldTextStyle(color: white)),
                     onPressed: () {},
                   ),
@@ -179,7 +180,7 @@ class PSUpdatesFragmentsState extends State<PSUpdatesFragments> {
                             width: 80,
                             height: 26,
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
-                            child: FlatButton(
+                            child: ElevatedButton(
                               onPressed: () {},
                               child: Text("Open", style: TextStyle(color: psColorGreen)),
                             ),

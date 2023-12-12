@@ -46,7 +46,10 @@ class PSSubscriptionsScreenState extends State<PSSubscriptionsScreen> {
               8.height,
               Text('You can sign up for subscriptions in your favorite \napps and games and manage them in App', textAlign: TextAlign.center),
               16.height,
-              RaisedButton(color: Colors.green, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)), onPressed: () {}, child: Text('Get started', style: TextStyle(color: Colors.white))),
+              ElevatedButton(
+                // color: Colors.green,
+                //  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  onPressed: () {}, child: Text('Get started', style: TextStyle(color: Colors.white))),
             ],
           ),
         ),

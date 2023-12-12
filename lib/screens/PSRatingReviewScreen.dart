@@ -108,13 +108,13 @@ class _PSRatingReviewScreenState extends State<PSRatingReviewScreen> {
               ],
             ),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text('CANCEL'),
                 onPressed: () {
                   finish(context);
                 },
               ),
-              FlatButton(
+              ElevatedButton(
                 child: Text('APPLY'),
                 onPressed: () {
                   finish(context);
@@ -279,9 +279,9 @@ class _ReviewDetailsListState extends State<ReviewDetailsList> {
                     if (v == 0) {
                       PSEditHistoryScreen(reviewModel: data).launch(context);
                     } else if (v == 1) {
-                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Review flag as inappropriate')));
+                      // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Review flag as inappropriate')));
                     } else if (v == 2) {
-                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Review flaged as spam')));
+                      // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Review flaged as spam')));
                     }
                   }, itemBuilder: (BuildContext context) {
                     List<PopupMenuEntry<Object>> list = [];
@@ -321,7 +321,7 @@ class _ReviewDetailsListState extends State<ReviewDetailsList> {
                         decoration: BoxDecoration(border: Border.all(color: GMGreyColor, width: 0.5), borderRadius: BorderRadius.circular(16)),
                         child: Text('Yes', style: primaryTextStyle(size: 14)),
                       ).onTap(() {
-                        Scaffold.of(context).showSnackBar(SnackBar(content: Text('Thanks for the feedback')));
+                        // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Thanks for the feedback')));
                       }),
                       8.width,
                       Container(
@@ -329,7 +329,7 @@ class _ReviewDetailsListState extends State<ReviewDetailsList> {
                         decoration: BoxDecoration(border: Border.all(color: GMGreyColor, width: 0.5), borderRadius: BorderRadius.circular(16)),
                         child: Text('No', style: primaryTextStyle(size: 14)),
                       ).onTap(() {
-                        Scaffold.of(context).showSnackBar(SnackBar(content: Text('Thanks for the feedback')));
+                        // Scaffold.of(context).showSnackBar(SnackBar(content: Text('Thanks for the feedback')));
                       }),
                     ],
                   ),
