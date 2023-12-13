@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return Observer(
       builder: (_) {
         return MaterialApp(
-          title: 'PlayStore flutter',
+          title: 'Play Store',
           theme: !appStore.isDarkModeOn ? AppThemeData.lightTheme : AppThemeData.darkTheme,
           builder: scrollBehaviour(),
           debugShowCheckedModeBanner: false,

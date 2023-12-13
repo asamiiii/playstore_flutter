@@ -24,8 +24,9 @@ class PSSplashScreenState extends State<PSSplashScreen> {
 
   Future checkFirstSeen() async {
     await Future.delayed(Duration(seconds: 1));
-    finish(context);
-    PSDashboardScreen().launch(context);
+    // finish(context);
+    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => PSDashboardScreen(),));
+    // PSDashboardScreen().launch(context);
   }
 
   @override
