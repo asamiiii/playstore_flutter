@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:android_intent_plus/android_intent.dart';
+import 'package:android_intent_plus/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -76,22 +78,60 @@ class PSDetailScreenState extends State<PSDetailScreen> {
     }
 
     Widget unInstallButton() {
-      return Container(
-        height: 35,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(height: 50, decoration: boxDecoration(color: appDividerColor, radius: 4), padding: EdgeInsets.only(left: 16, right: 16), child: Text('Cancel', style: primaryTextStyle(color: psColorGreen)).center()).expand(flex: 4),
-            16.width,
-            Container(height: 50, decoration: boxDecoration(bgColor: appDividerColor, radius: 4), padding: EdgeInsets.only(left: 16, right: 16), child: Text('Open', style: primaryTextStyle()).center()).expand(flex: 4),
-          ],
+  return Container(
+    height: 35,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Flexible(
+          flex: 4,
+          child: InkWell(
+            onTap: () {
+              
+            },
+            child: Container(
+              height: 50,
+              width: 170,
+              decoration: boxDecoration(color: appDividerColor, radius: 4),
+              padding: EdgeInsets.only(left: 16, right: 16),
+              child: Text('Uninstall', style: primaryTextStyle(color: psColorGreen)).center(),
+            ),
+          ),
         ),
-      ).paddingOnly(left: 18, right: 18).onTap(() {
-        setState(() {
-          isInstall = false;
-        });
-      });
-    }
+        SizedBox(width: 16),
+        Flexible(
+          flex: 4,
+          child: InkWell(
+            onTap: () async{
+              debugPrint('Open Wise');
+//   void openAppWithPackageId(String packageId) {
+//   final AndroidIntent intent = AndroidIntent(
+//     action: 'android.intent.action.MAIN',
+//     package: packageId,
+//     flags: [Flag.FLAG_ACTIVITY_NEW_TASK],
+//   );
+//   intent.launch();
+// }
+// openAppWithPackageId('com.transferwise.android');
+
+            },
+            child: Container(
+              height: 50,
+              width: 170,
+              decoration: boxDecoration(bgColor: Colors.blue[600], radius: 4),
+              padding: EdgeInsets.only(left: 16, right: 16),
+              child: Text('Open', style: primaryTextStyle()).center(),
+            ),
+          ),
+        ),
+      ],
+    ),
+  ).paddingOnly(left: 18, right: 18).onTap(() {
+    setState(() {
+      isInstall = false;
+    });
+  });
+}
 
     return Scaffold(
       appBar: AppBar(
@@ -169,7 +209,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         children: [
                           Row(
                             children: [
-                              Text('${randomNumber.nextInt(5) + 0.3}', style: boldTextStyle()),
+                              widget.data?.title!='Wise'? Text('${randomNumber.nextInt(5) + 0.3}', style: boldTextStyle()):Text('4.6', style: boldTextStyle()),
                               Icon(Icons.star, size: 10),
                             ],
                           ),
@@ -180,7 +220,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                       Column(
                         children: [
                           Icon(Icons.move_to_inbox_rounded, size: 22),
-                          Text(widget.data!.appSize.toString() + "MB", style: secondaryTextStyle(size: 12)),
+                          widget.data?.title!='Wise'?Text(widget.data!.appSize.toString() + "MB", style: secondaryTextStyle(size: 12)):Text('22' + "MB", style: secondaryTextStyle(size: 12)),
                         ],
                       ).paddingOnly(right: 16, left: 16),
                       Container(height: 30, width: 1, color: Colors.grey),
@@ -197,7 +237,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                       Container(height: 30, width: 1, color: Colors.grey),
                       Column(
                         children: [
-                          Text('${randomNumber.nextInt(100) + 30}K', style: boldTextStyle(size: 14)),
+                           widget.data?.title!='Wise'?  Text('${randomNumber.nextInt(100) + 30}K', style: boldTextStyle(size: 14)):Text('+10M', style: boldTextStyle(size: 14)),
                           2.height,
                           Text('Downloads', style: secondaryTextStyle(size: 13)),
                         ],
@@ -208,7 +248,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
               ),
             ),
             32.height,
-            isInstall ? unInstallButton() : installButton().paddingOnly(left: 16, right: 16),
+            widget.data?.title!='Wise'?  isInstall ? unInstallButton() : installButton().paddingOnly(left: 16, right: 16):unInstallButton(),
             24.height,
             GestureDetector(
               onTap: () {
@@ -232,10 +272,11 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                 itemBuilder: (context, index) {
                   return Container(
                     width: 150,
+                    height: 160,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        commonCacheImageWidget(details![index].imgLogo, height: 80, width: 150, fit: BoxFit.cover).cornerRadiusWithClipRRect(15),
+                        commonCacheImageWidget(details![index].imgLogo, height: 90, width: 150, fit: BoxFit.cover).cornerRadiusWithClipRRect(15),
                         3.height,
                         Text(details![index].title!, style: boldTextStyle(size: 13), overflow: TextOverflow.ellipsis, maxLines: 1),
                         Text(details![index].appSize.toString() + "MB", style: secondaryTextStyle(size: 12)),
@@ -248,18 +289,18 @@ class PSDetailScreenState extends State<PSDetailScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('About this game', style: boldTextStyle()),
+                Text('About this App', style: boldTextStyle()),
                 Icon(Icons.arrow_forward_rounded),
               ],
             ).paddingOnly(left: 16, right: 16).onTap(() {
               PSAboutGameScreen(data: widget.data).launch(context);
             }),
             12.height,
-            Text('Swipe  and place the tiles orderly. Challenge the number maze quickly.').paddingOnly(left: 16, right: 16),
+            widget.data?.title!='Wise'? Text('Swipe  and place the tiles orderly. Challenge the number maze quickly.').paddingOnly(left: 16, right: 16):Text('Going somewhere? The Wise account is built to save you money round the world.\n \n 170 countries. 50+ currencies. One account. All in one place. So you can send, spend, and receive money simply, with high speeds and low fees. Join 16+ million people moving and saving money internationally.').paddingOnly(left: 16, right: 16),
             18.height,
             Container(
               height: 30,
-              child: ListView.builder(
+              child:widget.data?.title!='Wise'? ListView.builder(
                 padding: EdgeInsets.only(left: 8, right: 8),
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -272,7 +313,13 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                     child: Text(list2[index]).center(),
                   ).paddingOnly(left: 8);
                 },
-              ),
+              ):Container(
+                    height: 30,
+                    width: 100,
+                    padding: EdgeInsets.only(left: 16, right: 16),
+                    decoration: boxDecoration(color: grey, radius: 16),
+                    child: Text('Finance').center(),
+                  ).paddingOnly(left: 8),
             ),
             18.height,
             Text('Rate this app', style: boldTextStyle()).paddingOnly(left: 16, right: 16),
@@ -317,10 +364,10 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                       onRatingChanged: (v) {},
                     ),
                     4.height,
-                    Text('${randomNumber.nextInt(156629)}', style: primaryTextStyle(size: 10)),
+                    widget.data?.title!='Wise'? Text('${randomNumber.nextInt(156629)}', style: primaryTextStyle(size: 10)):Text('4.6', style: primaryTextStyle(size: 10)),
                   ],
                 ).paddingOnly(left: 16, right: 16),
-                30.width,
+                // 30.width,
                 Column(
                   children: [
                     Row(
@@ -329,7 +376,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 120.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -342,7 +389,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 30.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -355,7 +402,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 15.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -368,7 +415,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 10.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -381,7 +428,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 50.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -655,11 +702,11 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         children: [
                           Row(
                             children: [
-                              Text('${randomNumber.nextInt(5) + 0.3}', style: boldTextStyle()),
+                              Text('4.6', style: boldTextStyle()),
                               Icon(Icons.star, size: 10),
                             ],
                           ),
-                          Text('${randomNumber.nextInt(153648) + 1000}K reviews', style: secondaryTextStyle(size: 12))
+                          Text('685K reviews', style: secondaryTextStyle(size: 12))
                         ],
                       ).paddingOnly(right: 16, left: 8),
                       Container(height: 30, width: 1, color: Colors.grey),
@@ -683,7 +730,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                       Container(height: 30, width: 1, color: Colors.grey),
                       Column(
                         children: [
-                          Text('${randomNumber.nextInt(100) + 30}K', style: boldTextStyle(size: 14)),
+                          Text('+10M', style: boldTextStyle(size: 14)),
                           2.height,
                           Text('Downloads', style: secondaryTextStyle(size: 13)),
                         ],
@@ -694,7 +741,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
               ),
             ),
             32.height,
-            isInstall ? unInstallButton() : installButton().paddingOnly(left: 16, right: 16),
+            unInstallButton(),
             24.height,
             GestureDetector(
               onTap: () {
@@ -734,31 +781,26 @@ class PSDetailScreenState extends State<PSDetailScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('About this game', style: boldTextStyle()),
+                Text('About this App', style: boldTextStyle()),
                 Icon(Icons.arrow_forward_rounded),
               ],
             ).paddingOnly(left: 16, right: 16).onTap(() {
               PSAboutGameScreen(data: widget.data).launch(context);
             }),
             12.height,
-            Text('Swipe  and place the tiles orderly. Challenge the number maze quickly.').paddingOnly(left: 16, right: 16),
+            Text('Going somewhere? The Wise account is built to save you money round the world.\n \n 170 countries. 50+ currencies. One account. All in one place. So you can send, spend, and receive money simply, with high speeds and low fees. Join 16+ million people moving and saving money internationally.').paddingOnly(left: 16, right: 16),
             18.height,
             Container(
               height: 30,
-              child: ListView.builder(
-                padding: EdgeInsets.only(left: 8, right: 8),
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: list2.length,
-                itemBuilder: (context, index) {
-                  return Container(
+              width: 150,
+              child: Container(
                     height: 30,
                     padding: EdgeInsets.only(left: 16, right: 16),
                     decoration: boxDecoration(color: grey, radius: 16),
-                    child: Text(list2[index]).center(),
-                  ).paddingOnly(left: 8);
-                },
-              ),
+                    child: Text('Finance').center(),
+                  ).paddingOnly(left: 8)
+                
+              
             ),
             18.height,
             Text('Rate this app', style: boldTextStyle()).paddingOnly(left: 16, right: 16),
@@ -794,7 +836,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${randomNumber.nextInt(5) + 0.5}', style: boldTextStyle(size: 45)),
+                    Text('4.6', style: boldTextStyle(size: 45)),
                     RatingBarWidget(
                       itemCount: 5,
                       size: 10,
@@ -815,7 +857,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 120.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -828,7 +870,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 30.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -841,7 +883,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 15.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -854,7 +896,7 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                         8.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 10.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -864,10 +906,10 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                     Row(
                       children: [
                         Text('1', style: boldTextStyle(size: 12)),
-                        8.width,
+                        5.width,
                         Container(
                           decoration: boxDecoration(bgColor: appDividerColor, radius: 16),
-                          width: context.width() * 0.6,
+                          width: context.width() * 0.5,
                           height: 12.0,
                           alignment: Alignment.topLeft,
                           child: Container(color: psColorGreen, width: 50.0, height: 50.0).cornerRadiusWithClipRRect(15),
@@ -875,7 +917,8 @@ class PSDetailScreenState extends State<PSDetailScreen> {
                       ],
                     )
                   ],
-                ).paddingOnly(left: 16),
+                ).paddingOnly(),
+                SizedBox(width: 5,)
               ],
             ),
             30.height,

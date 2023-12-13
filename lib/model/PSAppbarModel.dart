@@ -271,8 +271,8 @@ List<PSAppbarModel> getGameList = [
 List<PSAppbarModel> appsList = [
   PSAppbarModel(name: "For you", categories: [
     PSAppbarModel(name: 'Recommended for you', list: [
-      PSGameModel(imgMain: ps_GameImg1, imgLogo: ps_GameImg1, title: "Wise", subTitle: "Racing-Simulation", rating: 4.0, appSize: 17, subTitle1: "Finance"),
-      PSGameModel(imgMain: ps_GameImg1, imgLogo: ps_GameImg1, title: "Racing in Car 9", subTitle: "Racing-Simulation", rating: 4.0, appSize: 17, subTitle1: "Offline"),
+      // PSGameModel(imgMain: ps_GameImg1, imgLogo: ps_GameImg1, title: "Wise", subTitle: "Racing-Simulation", rating: 4.0, appSize: 17, subTitle1: "Finance"),
+      PSGameModel(imgMain: 'https://play-lh.googleusercontent.com/wU1A9m0ExkOTQAixWpggeLFzqeXFrR4A9GU9eDhLCO29AnAW4KzUYx1kyHPe21qPgw=w480-h960-rw', imgLogo:'https://play-lh.googleusercontent.com/wU1A9m0ExkOTQAixWpggeLFzqeXFrR4A9GU9eDhLCO29AnAW4KzUYx1kyHPe21qPgw=w480-h960-rw', title: "Wise", subTitle: "Wise, formerly Transfer Wise", rating: 4.0, appSize: 17, subTitle1: "Finance"),
       PSGameModel(imgMain: ps_GameImg2, imgLogo: ps_GameImg2, title: "Subway Surfers", subTitle: "Contains ads", rating: 4.4, appSize: 34, subTitle1: "Action"),
       PSGameModel(imgMain: ps_GameImg3, imgLogo: ps_GameImg3, title: "temple run", subTitle: "puzzle-casual", rating: 4.1, appSize: 43, subTitle1: "Action"),
       PSGameModel(imgMain: ps_GameImg4, imgLogo: ps_GameImg4, title: "Racing in Car 9", subTitle: "Racing-Simulation", rating: 4.0, appSize: 64, subTitle1: "Offline"),

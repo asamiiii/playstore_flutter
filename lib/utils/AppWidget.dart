@@ -64,7 +64,7 @@ Widget commonCacheImageWidget(String? url, {double? width, BoxFit? fit, double? 
         imageUrl: '$url',
         height: height,
         width: width,
-        fit: fit,
+        fit: BoxFit.fill,
       );
     } else {
       return Image.network(url!, height: height, width: width, fit: fit);

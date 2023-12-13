@@ -23,7 +23,7 @@ class PSSplashScreenState extends State<PSSplashScreen> {
   }
 
   Future checkFirstSeen() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     finish(context);
     PSDashboardScreen().launch(context);
   }

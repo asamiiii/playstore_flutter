@@ -26,7 +26,8 @@ class PSDashboardScreen extends StatefulWidget {
   PSDashboardScreenState createState() => PSDashboardScreenState();
 }
 
-class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProviderStateMixin {
+class PSDashboardScreenState extends State<PSDashboardScreen>
+    with TickerProviderStateMixin {
   GlobalKey<ScaffoldState> drawerKey = GlobalKey();
   TabController? _tabController;
 
@@ -43,7 +44,8 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
   void initState() {
     super.initState();
     init();
-    _tabController = TabController(vsync: this, initialIndex: 1, length: getGameList.length);
+    _tabController =
+        TabController(vsync: this, initialIndex: 1, length: getGameList.length);
   }
 
   @override
@@ -119,7 +121,8 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                 8.height,
                 Row(
                   children: [
-                    Image.asset(PS_playStore, width: 30, height: 30).paddingOnly(left: 8),
+                    Image.asset(PS_playStore, width: 30, height: 30)
+                        .paddingOnly(left: 8),
                     Text('App', style: boldTextStyle()),
                   ],
                 ),
@@ -132,7 +135,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSAppsGamesScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(MaterialCommunityIcons.apps_box, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(MaterialCommunityIcons.apps_box,
+                          size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('My apps & games', style: primaryTextStyle()),
                 ),
                 ListTile(
@@ -142,7 +147,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSNotificationScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(AntDesign.bells, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading:
+                      Icon(AntDesign.bells, size: 20, color: Colors.black54)
+                          .paddingOnly(left: 8),
                   title: Text('Notifications', style: primaryTextStyle()),
                 ),
                 ListTile(
@@ -152,7 +159,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSSubscriptionsScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Feather.refresh_cw, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading:
+                      Icon(Feather.refresh_cw, size: 20, color: Colors.black54)
+                          .paddingOnly(left: 8),
                   title: Text('Subscriptions', style: primaryTextStyle()),
                 ),
                 ListTile(
@@ -162,7 +171,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSWishListScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(MaterialCommunityIcons.bookmark_plus_outline, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(MaterialCommunityIcons.bookmark_plus_outline,
+                          size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('WishList', style: primaryTextStyle()),
                 ),
                 Divider(thickness: 1),
@@ -173,7 +184,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSAccountScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(MaterialCommunityIcons.account_outline, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(MaterialCommunityIcons.account_outline,
+                          size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('Accounts', style: primaryTextStyle()),
                 ),
                 ListTile(
@@ -183,7 +196,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSPaymentScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(MaterialIcons.payment, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(MaterialIcons.payment,
+                          size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('Payment methods', style: primaryTextStyle()),
                 ),
                 ListTile(
@@ -193,7 +208,9 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSPlayProtectScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(MaterialCommunityIcons.security, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(MaterialCommunityIcons.security,
+                          size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('Play Protect', style: primaryTextStyle()),
                 ),
                 ListTile(
@@ -203,20 +220,24 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                     PSSettingScreen().launch(context);
                   },
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.settings, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(Icons.settings, size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('Settings', style: primaryTextStyle()),
                 ),
                 Divider(thickness: 1),
                 ListTile(
                   visualDensity: VisualDensity(vertical: -2),
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.local_movies_outlined, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(Icons.local_movies_outlined,
+                          size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('Open Movies app', style: primaryTextStyle()),
                   trailing: Icon(Icons.exit_to_app_outlined),
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  leading: Icon(AntDesign.book, size: 20, color: Colors.black54).paddingOnly(left: 8),
+                  leading: Icon(AntDesign.book, size: 20, color: Colors.black54)
+                      .paddingOnly(left: 8),
                   title: Text('Open Books app', style: primaryTextStyle()),
                   trailing: Icon(Icons.exit_to_app_outlined),
                 ),
@@ -250,10 +271,21 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(label: 'Games', icon: Icon(Icons.sports_esports_outlined, size: 20), activeIcon: Icon(Entypo.game_controller, size: 25), backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(AntDesign.appstore_o, size: 25), activeIcon: Icon(AntDesign.appstore1, size: 25), label:'Apps', backgroundColor: Colors.white),
+          BottomNavigationBarItem(
+              label: 'Games',
+              icon: Icon(Icons.sports_esports_outlined, size: 20),
+              activeIcon: Icon(Entypo.game_controller, size: 25),
+              backgroundColor: Colors.white),
+          BottomNavigationBarItem(
+              icon: Icon(AntDesign.appstore_o, size: 25),
+              activeIcon: Icon(AntDesign.appstore1, size: 25),
+              label: 'Apps',
+              backgroundColor: Colors.white),
           // BottomNavigationBarItem(icon: Icon(Icons.local_movies_outlined, size: 25), activeIcon: Icon(MaterialIcons.local_movies, size: 25), label:'Movies', backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(AntDesign.book, size: 25), label: 'Books', activeIcon: Icon(FontAwesome.bookmark, size: 25))
+          BottomNavigationBarItem(
+              icon: Icon(AntDesign.book, size: 25),
+              label: 'Books',
+              activeIcon: Icon(FontAwesome.bookmark, size: 25))
         ],
         selectedItemColor: currentIndex == 0 || currentIndex == 1
             ? Colors.green
@@ -262,14 +294,20 @@ class PSDashboardScreenState extends State<PSDashboardScreen> with TickerProvide
                 : Colors.blue[900],
         onTap: (index) {
           setState(() {
-            currentIndex = index;
+            if (index != 2) {
+              currentIndex = index;
+            }
+
             if (index == 0) {
-              _tabController = TabController(vsync: this, initialIndex: 1, length: getGameList.length);
+              _tabController = TabController(
+                  vsync: this, initialIndex: 1, length: getGameList.length);
             } else if (index == 1) {
-              _tabController = TabController(vsync: this, initialIndex: 1, length: appsList.length);
-            } else if (index == 2) {
+              _tabController = TabController(
+                  vsync: this, initialIndex: 1, length: appsList.length);
+            }
+            else if (index == 2) {
               _tabController = TabController(vsync: this, initialIndex: 1, length: movieList.length);
-            } 
+            }
             // else if (index == 3) {
             //   _tabController = TabController(vsync: this, initialIndex: 1, length: booksList.length);
             // }
